@@ -9,7 +9,6 @@ namespace GreatestCommonFactor.UI
         private GCFAlgorithmCollection _algorithms;
         public AlgorithmsViewModel(params GCFAlgorithm[] algorithms)
         {
-            if (algorithms is null) throw new ArgumentNullException("Cannot be null", nameof(algorithms));
             _algorithms = new GCFAlgorithmCollection(algorithms);
         }
         public IEnumerable<AlgorithmViewModel> ToAlgorithmViewModels()

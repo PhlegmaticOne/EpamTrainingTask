@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 
 namespace GreatestCommonFactor.UI
 {
@@ -20,7 +21,6 @@ namespace GreatestCommonFactor.UI
             BothAlgorithmCommand = new DelegateCommand(SetBothTime, IsRightDataWrited);
             InputModel.DataChanged += InputModel_DataChanged;
         }
-
         private void InputModel_DataChanged(object sender, EventArgs e)
         {
             EuclidAlgorithmCommand.RaiseCanExecute();
@@ -30,7 +30,9 @@ namespace GreatestCommonFactor.UI
         private void SetEuclidTime(object obj)
         {
             Algorithms.Clear();
-            var euclidAlgorithm = new EuclideanAlgorithm(InputModel.GetInputNumbers().ToArray());
+            GCFAlgorithm euclidAlgorithm  = default;
+            try { euclidAlgorithm = new EuclideanAlgorithm(InputModel.GetInputNumbers().ToArray()); }
+            catch (Exception e) { MessageBox.Show(e.Message); return; }
             var algorithmsViewModel = new AlgorithmsViewModel(euclidAlgorithm);
             foreach (var algorithm in algorithmsViewModel.ToAlgorithmViewModels())
             {
@@ -40,7 +42,9 @@ namespace GreatestCommonFactor.UI
         private void SetSteinTime(object obj)
         {
             Algorithms.Clear();
-            var steinAlgorithm = new EuclideanAlgorithm(InputModel.GetInputNumbers().ToArray());
+            GCFAlgorithm steinAlgorithm = default;
+            try { steinAlgorithm = new EuclideanAlgorithm(InputModel.GetInputNumbers().ToArray()); }
+            catch(Exception e) { MessageBox.Show(e.Message); return; }
             var algorithmsViewModel = new AlgorithmsViewModel(steinAlgorithm);
             foreach (var algorithm in algorithmsViewModel.ToAlgorithmViewModels())
             {
@@ -51,8 +55,13 @@ namespace GreatestCommonFactor.UI
         {
             Algorithms.Clear();
             var data = InputModel.GetInputNumbers().ToArray();
-            var euclidAlgorithm = new EuclideanAlgorithm(data);
-            var steinsAlgorithm = new SteinsAlgorithm(data);
+            GCFAlgorithm euclidAlgorithm = default, steinsAlgorithm = default;
+            try
+            {
+                euclidAlgorithm = new EuclideanAlgorithm(data);
+                steinsAlgorithm = new SteinsAlgorithm(data);
+            }
+            catch(Exception e) { MessageBox.Show(e.Message); return; }
             var algorithmsViewModel = new AlgorithmsViewModel(euclidAlgorithm, steinsAlgorithm);
             foreach (var algorithm in algorithmsViewModel.ToAlgorithmViewModels())
             {
