@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GreatestCommonFactor.Lib</name>
+    </assembly>
+    <members>
+        <member name="T:GreatestCommonFactor.Lib.TimeSpanExtensions">
+            <summary>
+            Extensions for TimeSpan
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.TimeSpanExtensions.Procents(System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Calculates part in procents of two times
+            </summary>
+            <param name="divident">Time to calculate it part of the total time</param>
+            <param name="divisor">Total time</param>
+            <returns>Procent of time in common time</returns>
+        </member>
+        <member name="T:GreatestCommonFactor.Lib.Swapper">
+            <summary>
+            Represents instance for swapping any type objects
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.Swapper.Swap``1(``0@,``0@)">
+            <summary>
+            Swaps two intances of any type
+            </summary>
+            <typeparam name="T">Any type</typeparam>
+            <param name="firstValue">First value to swap</param>
+            <param name="secondValue">Second value to swap</param>
+        </member>
+        <member name="T:GreatestCommonFactor.Lib.EuclideanAlgorithmExecutionResult">
+            <summary>
+            Represents instance for wrapping algorithm execution results
+            </summary>
+        </member>
+        <member name="P:GreatestCommonFactor.Lib.EuclideanAlgorithmExecutionResult.AlgorithmName">
+            <summary>
+            Algorithm name
+            </summary>
+        </member>
+        <member name="P:GreatestCommonFactor.Lib.EuclideanAlgorithmExecutionResult.ExecutionTime">
+            <summary>
+            Algorith execution time
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanAlgorithmExecutionResult.#ctor(System.String,System.TimeSpan)">
+            <summary>
+            Initializes instance of EuclideanAlgorithmExecutionResult
+            </summary>
+            <param name="algorithmName">Algorigth name</param>
+            <param name="executionTime">Algorith execution time</param>
+        </member>
+        <member name="T:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm">
+            <summary>
+            Represents instance for calculating GCF between numbers
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm.GCF(System.Int32,System.Int32)">
+            <summary>
+            Calculates the GCF of two numbers by Euclid's method in a loop
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <exception cref="T:System.ArgumentException"><paramref name="firstNumber"/>Less than zero</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="secondNumber"/>Less than zero</exception>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm.GCF(System.Int32,System.Int32,System.TimeSpan@)">
+            <summary>
+            Calculates the GCF of two numbers by Euclid's method in a loop with out parameter which will equal to execution time of algorithm
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <param name="runTime">Execution time of algorithm</param>
+            <exception cref="T:System.ArgumentException"><paramref name="firstNumber"/>Less than zero</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="secondNumber"/>Less than zero</exception>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm.GCF(System.Int32[])">
+            <summary>
+            Calculates GCF with any amount of numbers
+            </summary>
+            <param name="numbers">Number for GCF calculating</param>
+            <exception cref="T:System.ArgumentException">If at least one of number less than zero</exception>
+            <returns>GCF of numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm.BinaryGCF(System.Int32,System.Int32)">
+            <summary>
+            Calculates the GCF of two numbers by Steins's binary method
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <exception cref="T:System.ArgumentException"><paramref name="firstNumber"/>Less than zero</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="secondNumber"/>Less than zero</exception>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm.BinaryGCF(System.Int32,System.Int32,System.TimeSpan@)">
+            <summary>
+            Calculates the GCF of two numbers by Steins's binary method with out parameter which will equal to execution time of algorithm
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <param name="runTime">Execution time of algorithm</param>
+            <exception cref="T:System.ArgumentException"><paramref name="firstNumber"/>Less than zero</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="secondNumber"/>Less than zero</exception>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm.GetAlgorithmsExecutionTimeResults(System.Int32,System.Int32)">
+            <summary>
+            Gets execution time of two algorithms with same parameters
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <exception cref="T:System.ArgumentException"><paramref name="firstNumber"/>Less than zero</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="secondNumber"/>Less than zero</exception>
+            <returns>Collection of <c>EuclideanAlgorithmExecutionResult</c>. Include execution time and algorithm name</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm.ExecuteGCFAlgorithm(System.Int32,System.Int32)">
+            <summary>
+            Main logic of Euclidean GCF algorithm
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanGCFAlgorithm.ExecuteBinaryGCFAlgorithm(System.Int32,System.Int32)">
+            <summary>
+            Main logic of Steins GCF algorithm
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="T:GreatestCommonFactor.Lib.GCFAlgorithm">
+            <summary>
+            Represents base instance for GCF algorithms
+            </summary>
+        </member>
+        <member name="F:GreatestCommonFactor.Lib.GCFAlgorithm._numbers">
+            <summary>
+            Numbers which will be used to find their GCF
+            </summary>
+        </member>
+        <member name="P:GreatestCommonFactor.Lib.GCFAlgorithm.Numbers">
+            <summary>
+            Property for getting numbers which are used for calculating GCF
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithm.#ctor(System.Int32[])">
+            <summary>
+            Initializes GCFAlgorithm instance with numbers for calculating their GCF
+            </summary>
+            <exception cref="T:System.ArgumentNullException"><paramref name="numbers"/>Collection of numbers is null</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="numbers"/>Collection has no numbers</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="numbers"/>Collection contains negative number(s)</exception>
+            <param name="numbers">Collection of numbers</param>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithm.Execute">
+            <summary>
+            Method which passed through all numbers and find their GCF by using overrided  GCF algorithm in childs algorithm classes
+            </summary>
+            <returns>GCF of all numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithm.GetGCFBetween(System.Int32,System.Int32)">
+            <summary>
+            Abstract algorithm of calculating GCF of two numbers
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithm.GetHashCode">
+            <summary>
+            Overrided GetHashCode method
+            </summary>
+            <returns>Hash code of GCFAlgorithm class</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithm.Equals(System.Object)">
+            <summary>
+            Overrided Equals method for two GCFAlgorithm classes
+            </summary>
+            <param name="obj">Object to check equality</param>
+            <returns>true - objects are equal, false - they are not equal</returns>
+        </member>
+        <member name="T:GreatestCommonFactor.Lib.GCFTimeAlgorithm">
+            <summary>
+            Class to calculate algorithms execution time
+            </summary>
+        </member>
+        <member name="F:GreatestCommonFactor.Lib.GCFTimeAlgorithm._algorithms">
+            <summary>
+            GCF algrorithm collection
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFTimeAlgorithm.#ctor(GreatestCommonFactor.Lib.GCFAlgorithmCollection)">
+            <summary>
+            Initializes new GCFTimeAlgorithm instance with collection of GCFAlgorithms
+            </summary>
+            <exception cref="T:System.ArgumentNullException"><paramref name="algorithms"/>Collection is null</exception>
+            <param name="algorithms">GCFAlgorithm collections</param>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFTimeAlgorithm.GetAlgorithmsExecutionTime">
+            <summary>
+            Calculate algorithms execution time. If algorithms hashes are equal nothing will be added
+            </summary>
+            <returns>Returns dictionary, whose keys are GCFAlgorithms and values are thei execution times</returns>
+        </member>
+        <member name="T:GreatestCommonFactor.Lib.EuclideanAlgorithm">
+            <summary>
+            Represents Euclidean algorithm for calculating GCF
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanAlgorithm.#ctor(System.Int32[])">
+            <summary>
+            Initializes new EuclideanAlgorithm instance with an array of numbers
+            </summary>
+            <param name="numbers"></param>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanAlgorithm.GetGCFBetween(System.Int32,System.Int32)">
+            <summary>
+            Do main logic for calculating GCF by Euclidean method
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.EuclideanAlgorithm.ToString">
+            <summary>
+            String representation of EuclideanAlgorithm instance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GreatestCommonFactor.Lib.GCFAlgorithmCollection">
+            <summary>
+            Represents a collection for GCF algorithms
+            </summary>
+        </member>
+        <member name="F:GreatestCommonFactor.Lib.GCFAlgorithmCollection._algorithms">
+            <summary>
+            Collection of GCF algorithms
+            </summary>
+        </member>
+        <member name="P:GreatestCommonFactor.Lib.GCFAlgorithmCollection.Count">
+            <summary>
+            Amount of algorithms in collection
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithmCollection.#ctor(GreatestCommonFactor.Lib.GCFAlgorithm[])">
+            <summary>
+            Initializes new GCFAlgorithmCollection instance
+            </summary>
+            <param name="algorithms">Array of GCFAlgorithms</param>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithmCollection.#ctor(System.Collections.Generic.ICollection{GreatestCommonFactor.Lib.GCFAlgorithm})">
+            <summary>
+            Initializes new GCFAlgorithmCollection instance
+            </summary>
+            <exception cref="T:System.ArgumentNullException"><paramref name="algorithms"/>Collection is null</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="algorithms"/>Collection is empty</exception>
+            <param name="algorithms">Collection of GCFAlgorithms</param>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithmCollection.#ctor">
+            <summary>
+            Initializes new GCFAlgorithmCollection instance
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithmCollection.Add(GreatestCommonFactor.Lib.GCFAlgorithm)">
+            <summary>
+            Adds new GCFAlgorithm instance to colletion. If algorithm is null nothing will be added
+            </summary>
+            <param name="algorithm">GCFAlgorithm instance to add</param>
+            <returns>Instance of this collection</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.GCFAlgorithmCollection.GetEnumerator">
+            <summary>
+            Enumarate GCFAlgorithms
+            </summary>
+            <returns>An enumerator that can be used to iterate through the collection</returns>
+        </member>
+        <member name="T:GreatestCommonFactor.Lib.SteinsAlgorithm">
+            <summary>
+            Represents Steins algorithm for calculating GCF of two numbers
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.SteinsAlgorithm.#ctor(System.Int32[])">
+            <summary>
+            Initializes new SteinsAlgorithm instance with an array of numbers
+            </summary>
+            <param name="numbers"></param>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.SteinsAlgorithm.GetGCFBetween(System.Int32,System.Int32)">
+            <summary>
+            Do main logic for calculating GCF by Steins method
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.SteinsAlgorithm.BinaryGCF(System.Int32,System.Int32)">
+            <summary>
+            Since this method is recursive, it is moved to a separate method
+            </summary>
+            <param name="firstNumber">First number</param>
+            <param name="secondNumber">Second number</param>
+            <returns>GCF of two numbers</returns>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.SteinsAlgorithm.ToString">
+            <summary>
+            String representation of SteinAlgorithm instance
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
