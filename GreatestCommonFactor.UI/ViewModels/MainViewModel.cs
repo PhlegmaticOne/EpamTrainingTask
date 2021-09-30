@@ -1,5 +1,6 @@
 ﻿using GreatestCommonFactor.Lib;
 using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace GreatestCommonFactor.UI
@@ -10,8 +11,7 @@ namespace GreatestCommonFactor.UI
         public DelegateCommand EuclidAlgorithmCommand { get; set; }
         public DelegateCommand SteinAlgorithmCommand { get; set; }
         public DelegateCommand BothAlgorithmCommand { get; set; }
-        public AlgorithmViewModel EuclidAlgorithmViewModel { get; set; }
-        public AlgorithmViewModel SteinAlgorithmViewModel { get; set; }
+        public ObservableCollection<AlgorithmViewModel> Algorithms { get; set; } = new();
         public string AlgorithmView { get; set; }
         public MainViewModel()
         {
@@ -29,38 +29,35 @@ namespace GreatestCommonFactor.UI
         }
         private void SetEuclidTime(object obj)
         {
-            SteinAlgorithmViewModel = null;
-            var algorithm = new EuclideanAlgorithm(InputModel.GetInputNumbers().ToArray());
-            EuclidAlgorithmViewModel = new AlgorithmViewModel(algorithm);
-            AlgorithmView = algorithm.ToString();
+            Algorithms.Clear();
+            var euclidAlgorithm = new EuclideanAlgorithm(InputModel.GetInputNumbers().ToArray());
+            var algorithmsViewModel = new AlgorithmsViewModel(euclidAlgorithm);
+            foreach (var algorithm in algorithmsViewModel.ToAlgorithmViewModels())
+            {
+                Algorithms.Add(algorithm);
+            }
         }
         private void SetSteinTime(object obj)
         {
-            EuclidAlgorithmViewModel = null;
-            var algorithm = new SteinsAlgorithm(InputModel.GetInputNumbers().ToArray());
-            SteinAlgorithmViewModel = new AlgorithmViewModel(algorithm);
-            AlgorithmView = algorithm.ToString();
+            Algorithms.Clear();
+            var steinAlgorithm = new EuclideanAlgorithm(InputModel.GetInputNumbers().ToArray());
+            var algorithmsViewModel = new AlgorithmsViewModel(steinAlgorithm);
+            foreach (var algorithm in algorithmsViewModel.ToAlgorithmViewModels())
+            {
+                Algorithms.Add(algorithm);
+            }
         }
         private void SetBothTime(object obj)
         {
-            EuclidAlgorithmViewModel = null;
-            SteinAlgorithmViewModel = null;
-
+            Algorithms.Clear();
             var data = InputModel.GetInputNumbers().ToArray();
             var euclidAlgorithm = new EuclideanAlgorithm(data);
             var steinsAlgorithm = new SteinsAlgorithm(data);
-            
-            SteinAlgorithmViewModel = new AlgorithmViewModel(euclidAlgorithm);
-            EuclidAlgorithmViewModel = new AlgorithmViewModel(steinsAlgorithm);
-
-            AlgorithmView = euclidAlgorithm.ToString();
-
-            SteinAlgorithmViewModel.Procents = GetProcentsOfTime(SteinAlgorithmViewModel.ExecutionTime) * 100;
-            EuclidAlgorithmViewModel.Procents = GetProcentsOfTime(EuclidAlgorithmViewModel.ExecutionTime) * 100;
-        }
-        private double GetProcentsOfTime(TimeSpan executionTime)
-        {
-            return executionTime.Procents(SteinAlgorithmViewModel.ExecutionTime + EuclidAlgorithmViewModel.ExecutionTime);
+            var algorithmsViewModel = new AlgorithmsViewModel(euclidAlgorithm, steinsAlgorithm);
+            foreach (var algorithm in algorithmsViewModel.ToAlgorithmViewModels())
+            {
+                Algorithms.Add(algorithm);
+            }
         }
         private bool IsRightDataWrited(object obj) => InputModel.IsValid;
     }

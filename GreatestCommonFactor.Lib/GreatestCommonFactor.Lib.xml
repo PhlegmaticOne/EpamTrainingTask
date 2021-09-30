@@ -30,6 +30,18 @@
             <param name="firstValue">First value to swap</param>
             <param name="secondValue">Second value to swap</param>
         </member>
+        <member name="T:GreatestCommonFactor.Lib.TimeSummator">
+            <summary>
+            Represents time calculator
+            </summary>
+        </member>
+        <member name="M:GreatestCommonFactor.Lib.TimeSummator.GetSum(System.Collections.Generic.ICollection{System.TimeSpan})">
+            <summary>
+            Calculating sum of times
+            </summary>
+            <param name="times">Times to sum</param>
+            <returns>Sum of times</returns>
+        </member>
         <member name="T:GreatestCommonFactor.Lib.EuclideanAlgorithmExecutionResult">
             <summary>
             Represents instance for wrapping algorithm execution results
