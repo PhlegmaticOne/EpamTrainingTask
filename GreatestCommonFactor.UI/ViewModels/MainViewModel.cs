@@ -43,7 +43,7 @@ namespace GreatestCommonFactor.UI
         {
             Algorithms.Clear();
             GCFAlgorithm steinAlgorithm = default;
-            try { steinAlgorithm = new EuclideanAlgorithm(InputModel.GetInputNumbers().ToArray()); }
+            try { steinAlgorithm = new SteinsAlgorithm(InputModel.GetInputNumbers().ToArray()); }
             catch(Exception e) { MessageBox.Show(e.Message); return; }
             var algorithmsViewModel = new AlgorithmsViewModel(steinAlgorithm);
             foreach (var algorithm in algorithmsViewModel.ToAlgorithmViewModels())
